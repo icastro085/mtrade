@@ -1,0 +1,81 @@
+$max-columns: 12;
+$columns-padding: 10px;
+$max-margin-number: 5;
+
+.row, .row-fluid {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-left: -$columns-padding;
+  margin-right: -$columns-padding;
+
+  @for $i from 1 through $max-columns {
+    .col-#{$i} {
+      width: 100% / ($max-columns / $i);
+      padding-left: $columns-padding;
+      padding-right: $columns-padding;
+    }
+  }
+}
+
+.row-fluid {
+  margin-left:0;
+  margin-right: 0;
+}
+
+@for $i from 1 through $max-margin-number {
+  .mt-#{$i} {
+    margin-top: 2px + (4px * ($i - 1)) !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: 2px + (4px * ($i - 1)) !important;
+  }
+
+  .my-#{$i} {
+    margin-top: 2px + (4px * ($i - 1));
+    margin-bottom: 2px + (4px * ($i - 1)) !important;
+  }
+
+  .mr-#{$i} {
+    margin-right: 2px + (4px * ($i - 1)) !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: 2px + (4px * ($i - 1)) !important;
+  }
+
+  .mx-#{$i} {
+    margin-right: 2px + (4px * ($i - 1)) !important;
+    margin-left: 2px + (4px * ($i - 1)) !important;
+  }
+
+  .px-#{$i} {
+    padding-right: 2px + (4px * ($i - 1)) !important;
+    padding-left: 2px + (4px * ($i - 1)) !important;
+  }
+}
+
+.clear-both {
+  clear: both;
+}
+
+.pagination {
+  ul li {
+    float: left;
+    font-size: 20px;
+    border-radius: 3px;
+    text-align: center;
+
+    border: 1px solid $color-3;
+    margin-right: 10px;
+
+    a {
+      text-decoration: none;
+      color: $color-3;
+      display: block;
+      min-width: 40px;
+      padding: 10px;
+    }
+  }
+}
