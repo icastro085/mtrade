@@ -7,6 +7,12 @@ $max-width: 1024px;
   font-size: 58px;
   padding: 20px 0;
   color: #efc3e6;
+
+  * {
+    font-family: 'Indie Flower', cursive;
+    color: #efc3e6;
+    text-decoration: none;
+  }
 }
 
 .container {
@@ -28,6 +34,14 @@ $max-width: 1024px;
     li {
       float: left;
       margin: 0 10px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
 
       a {
         text-decoration: none;

@@ -5,19 +5,24 @@ form {
   }
 
   input, select {
-    padding: 10px;
-    border: 1px solid #9c89b8;
-    border-radius: 3px;
+    @include border;
+    padding: $padding-base;
+    border-radius: $border-radius;
     background-color: #fff;
   }
 
   label {
     & + input, & + select {
-      margin-left: 10px;
+      margin-left: $margin-base;
 
       & + label {
-        margin-left: 10px;
+        margin-left: $margin-base;
       }
     }
   }
+}
+
+label {
+  padding: $padding-base 0;
+  display: inline-block;
 }
