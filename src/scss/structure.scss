@@ -1,19 +1,23 @@
-$max-columns: 12;
-$columns-padding: 10px;
-$max-margin-number: 5;
+@mixin pm-value($pm-prop, $i) {
+  #{$pm-prop}: ($pm-base * ($i));
+}
+
+@mixin border {
+  border: 1px solid $color-3;
+}
 
 .row, .row-fluid {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  margin-left: -$columns-padding;
-  margin-right: -$columns-padding;
+  margin-left: -$padding-base;
+  margin-right: -$padding-base;
 
   @for $i from 1 through $max-columns {
     .col-#{$i} {
       width: 100% / ($max-columns / $i);
-      padding-left: $columns-padding;
-      padding-right: $columns-padding;
+      padding-left: $padding-base;
+      padding-right: $padding-base;
     }
   }
 }
@@ -23,36 +27,36 @@ $max-margin-number: 5;
   margin-right: 0;
 }
 
-@for $i from 1 through $max-margin-number {
+@for $i from 1 through $pm-max-number {
   .mt-#{$i} {
-    margin-top: 2px + (4px * ($i - 1)) !important;
+    @include pm-value(margin-top, $i);
   }
 
   .mb-#{$i} {
-    margin-bottom: 2px + (4px * ($i - 1)) !important;
-  }
-
-  .my-#{$i} {
-    margin-top: 2px + (4px * ($i - 1));
-    margin-bottom: 2px + (4px * ($i - 1)) !important;
+    @include pm-value(margin-bottom, $i);
   }
 
   .mr-#{$i} {
-    margin-right: 2px + (4px * ($i - 1)) !important;
+    @include pm-value(margin-right, $i);
   }
 
   .ml-#{$i} {
-    margin-left: 2px + (4px * ($i - 1)) !important;
+    @include pm-value(margin-left, $i);
+  }
+
+  .my-#{$i} {
+    @include pm-value(margin-top, $i);
+    @include pm-value(margin-bottom, $i);
   }
 
   .mx-#{$i} {
-    margin-right: 2px + (4px * ($i - 1)) !important;
-    margin-left: 2px + (4px * ($i - 1)) !important;
+    @include pm-value(margin-right, $i);
+    @include pm-value(margin-left, $i);
   }
 
   .px-#{$i} {
-    padding-right: 2px + (4px * ($i - 1)) !important;
-    padding-left: 2px + (4px * ($i - 1)) !important;
+    @include pm-value(padding-right, $i);
+    @include pm-value(padding-left, $i);
   }
 }
 
@@ -62,20 +66,20 @@ $max-margin-number: 5;
 
 .pagination {
   ul li {
+    @include border;
     float: left;
     font-size: 20px;
-    border-radius: 3px;
+    border-radius: $border-radius;
     text-align: center;
-
-    border: 1px solid $color-3;
-    margin-right: 10px;
+    background-color: #fff;
+    margin-right: $margin-base;
 
     a {
       text-decoration: none;
       color: $color-3;
       display: block;
       min-width: 40px;
-      padding: 10px;
+      padding: $padding-base;
     }
   }
 }

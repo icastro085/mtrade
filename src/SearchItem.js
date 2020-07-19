@@ -17,7 +17,7 @@ export default function SearchItem() {
           <span className="price mt-3">R$ 13,00</span>
         </div>
 
-        <a className="buy-button" href="/#/">
+        <a className="buy-button" href="/#/product/buy">
           COMPRAR
           <i className="fas fa-shopping-cart ml-3" />
         </a>

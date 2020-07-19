@@ -8,8 +8,8 @@ export default function Search() {
   return (
     <>
       <Banner />
-      <section className="search-container">
-        <form>
+      <section className="search-container my-2">
+        <form onSubmit={(e) => { e.stopPropagation(); }}>
           <label>Ordenar por:</label>
           <select className="sort-by">
             <option>Nome</option>
@@ -17,13 +17,13 @@ export default function Search() {
 
           <label htmlFor="up-sort">
             Crescente
-            <i className="fas fa-sort-amount-down-alt ml-2" />
+            <i className="fas fa-sort-amount-down-alt ml-1" />
           </label>
           <input id="up-sort" type="radio" name="sort" />
 
           <label htmlFor="down-sort">
             Decrescente
-            <i className="fas fa-sort-amount-up ml-2" />
+            <i className="fas fa-sort-amount-up ml-1" />
           </label>
           <input id="down-sort" type="radio" name="sort" />
         </form>
